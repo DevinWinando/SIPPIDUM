@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\JaksaController;
+use App\Http\Controllers\PenyidikController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::resource('jaksa', JaksaController::class);
+Route::resource('penyidik', PenyidikController::class);
+// Route::get('/', [JaksaController::class, 'index']);
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard.index');
 });
