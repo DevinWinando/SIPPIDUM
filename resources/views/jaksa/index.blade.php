@@ -4,9 +4,9 @@
 SIPPIDUM - Jaksa
 @endsection
 
-@section('link')
+@push('link')
 <link rel="stylesheet" href="{{ asset('vendors/simple-datatables/style.css') }}" />
-@endsection
+@endpush
 
 @section('main')
 <div class="page-title">
@@ -49,8 +49,9 @@ SIPPIDUM - Jaksa
                             <td>{{ $row->nip }}</td>
                             <td>{{ $row->jabatan }}</td>
                             <td class="text-center">
-                                <a href="jaksa/{{ $row->id_jaksa }}"><span class="badge bg-success">Edit</span>
-                                </a>
+                                <button href="jaksa/{{ $row->id_jaksa }}" class="badge bg-success border-0 edit-btn"   data-bs-toggle="modal"
+                                    data-bs-target="#exampleModalCenter" data-id="{{  $row->id_jaksa  }}">Edit
+                                </button>
                                     <form action="jaksa/{{ $row->id_jaksa }}" method="post" style="display: inline-block;">
                                         @method('delete')
                                         @csrf
@@ -77,10 +78,11 @@ SIPPIDUM - Jaksa
                         <i data-feather="x"></i>
                     </button>
                 </div>
-                <form class="form form-horizontal" method="post">
+                <form class="form form-horizontal" method="post" action="/jaksa" id="modal-form">
                     <div class="modal-body">
                         <div class="form-body">
                             <div class="row">
+                                <input type="hidden" name="_method" value="POST" id="modal-method">
                                 @csrf
                                 <div class="col-md-4">
                                     <label>Nama</label>
@@ -89,7 +91,7 @@ SIPPIDUM - Jaksa
                                     <div class="form-group">
                                         <div class="position-relative">
                                             <input type="text" class="form-control" name="nama" autocomplete="off"
-                                                placeholder="Nama" id="first-name-icon">
+                                                placeholder="Nama" id="nama">
                                         </div>
                                     </div>
                                 </div>
@@ -100,7 +102,7 @@ SIPPIDUM - Jaksa
                                     <div class="form-group">
                                         <div class="position-relative">
                                             <input type="text" class="form-control" name="nip" autocomplete="off"
-                                                placeholder="NIP" id="first-name-icon">
+                                                placeholder="NIP" id="nip">
                                         </div>
                                     </div>
                                 </div>
@@ -111,7 +113,7 @@ SIPPIDUM - Jaksa
                                     <div class="form-group">
                                         <div class="position-relative">
                                             <input type="text" class="form-control" name="jabatan" autocomplete="off"
-                                                placeholder="Jabatan">
+                                                placeholder="Jabatan" id="jabatan">
                                         </div>
                                     </div>
                                 </div>
@@ -138,7 +140,7 @@ SIPPIDUM - Jaksa
 @endsection
 
 
-@section('script')
+@push('script')
 <script src="{{ asset('vendors/simple-datatables/simple-datatables.js') }}"></script>
 <script src="{{ asset('js/script/jaksa.js') }}"></script>
 
@@ -147,4 +149,4 @@ SIPPIDUM - Jaksa
     let dataTable = new simpleDatatables.DataTable(jaksaTable);
 </script>
 
-@endsection
+@endpush

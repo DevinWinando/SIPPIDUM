@@ -55,9 +55,11 @@ class JaksaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Jaksa $jaksa)
     {
-        //
+        $result = Jaksa::find($jaksa)->first();
+
+        return json_encode($jaksa);
     }
 
     /**
@@ -66,9 +68,11 @@ class JaksaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Jaksa $jaksa)
     {
-        //
+        $result = Jaksa::where('id_jaksa', $jaksa)->first();
+
+        echo json_encode($result);
     }
 
     /**
@@ -78,9 +82,15 @@ class JaksaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Jaksa $jaksa)
     {
-        //
+        jaksa::where('id_jaksa', $jaksa->id_jaksa)->update([
+            'nama' => $request->nama,
+            'nip' => $request->nip,
+            'jabatan' => $request->jabatan
+        ]);
+
+        return redirect('/jaksa')->with('status', 'Data Berhasil Diubah');
     }
 
     /**

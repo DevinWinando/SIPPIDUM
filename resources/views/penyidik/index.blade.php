@@ -4,9 +4,9 @@
 SIPPIDUM - Jaksa
 @endsection
 
-@section('link')
+@push('link')
 <link rel="stylesheet" href="{{ asset('vendors/simple-datatables/style.css') }}" />
-@endsection
+@endpush
 
 @section('main')
 <div class="page-title">
@@ -123,7 +123,7 @@ SIPPIDUM - Jaksa
 @endsection
 
 
-@section('script')
+@push('script')
 <script src="{{ asset('vendors/simple-datatables/simple-datatables.js') }}"></script>
 <script src="{{ asset('') }}"></script>
 
@@ -132,4 +132,4 @@ SIPPIDUM - Jaksa
     let dataTable = new simpleDatatables.DataTable(penyidikTable);
 </script>
 
-@endsection
+@endpush

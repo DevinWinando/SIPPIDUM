@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
     <link rel="shortcut icon" href="{{ asset('images/favicon.svg') }}" type="image/x-icon" />
 
-    @yield('link')
+    @stack('link')
 </head>
 
 <body>
@@ -183,7 +183,7 @@
 
     <script src="{{ asset('vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
-    @yield('script')
+    @stack('script')
     
     <script src="{{ asset('js/main.js') }}"></script>
 </body>
