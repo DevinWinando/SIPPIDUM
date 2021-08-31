@@ -49,7 +49,7 @@ SIPPIDUM - Jaksa
                             <td>{{ $row->nip }}</td>
                             <td>{{ $row->jabatan }}</td>
                             <td class="text-center">
-                                <button href="jaksa/{{ $row->id_jaksa }}" class="badge bg-success border-0 edit-btn"   data-bs-toggle="modal"
+                                <button class="badge bg-success border-0 btn-edit"   data-bs-toggle="modal"
                                     data-bs-target="#exampleModalCenter" data-id="{{  $row->id_jaksa  }}">Edit
                                 </button>
                                     <form action="jaksa/{{ $row->id_jaksa }}" method="post" style="display: inline-block;">
@@ -62,7 +62,7 @@ SIPPIDUM - Jaksa
                     @endforeach
                 </tbody>
             </table>
-            <button class="btn btn-info" data-bs-toggle="modal"
+            <button class="btn btn-info btn-add" data-bs-toggle="modal"
             data-bs-target="#exampleModalCenter">Tambah Data</button>
         </div>
     </div>

@@ -46,7 +46,8 @@ SIPPIDUM - Jaksa
                             <td>{{ $row->instansi }}</td>
                             <td>{{ $row->alamat }}</td>
                             <td>
-                                <a href="penyidik/detail"><span class="badge bg-success">Edit</span></a>
+                                <button class="badge bg-success border-0 btn-edit" data-bs-toggle="modal"
+                                data-bs-target="#exampleModalCenter" data-id="{{ $row->id_penyidik }}">Edit</button>
                                 <form action="penyidik/{{ $row->id_penyidik }}" method="post" style="display: inline-block;">
                                     @method('delete')
                                     @csrf
@@ -57,7 +58,7 @@ SIPPIDUM - Jaksa
                     @endforeach
                 </tbody>
             </table>
-            <button class="btn btn-info" data-bs-toggle="modal"
+            <button class="btn btn-info btn-add" data-bs-toggle="modal"
             data-bs-target="#exampleModalCenter">Tambah Data</button>
         </div>
     </div>
@@ -73,10 +74,11 @@ SIPPIDUM - Jaksa
                         <i data-feather="x"></i>
                     </button>
                 </div>
-                <form class="form form-horizontal" method="post">
+                <form class="form form-horizontal" method="post" id="modal-form">
                     <div class="modal-body">
                         <div class="form-body">
                             <div class="row">
+                                <input type="hidden" name="_method" value="POST" id="modal-method">
                                 @csrf
                                 <div class="col-md-4">
                                     <label>instansi</label>
@@ -85,7 +87,7 @@ SIPPIDUM - Jaksa
                                     <div class="form-group">
                                         <div class="position-relative">
                                             <input type="text" class="form-control" name="instansi" autocomplete="off"
-                                                placeholder="Instansi" id="first-name-icon">
+                                                placeholder="Instansi" id="instansi">
                                         </div>
                                     </div>
                                 </div>
@@ -96,7 +98,7 @@ SIPPIDUM - Jaksa
                                     <div class="form-group">
                                         <div class="position-relative">
                                             <input type="text" class="form-control" name="alamat" autocomplete="off"
-                                                placeholder="Alamat" id="first-name-icon">
+                                                placeholder="Alamat" id="alamat">
                                         </div>
                                     </div>
                                 </div>
@@ -125,7 +127,7 @@ SIPPIDUM - Jaksa
 
 @push('script')
 <script src="{{ asset('vendors/simple-datatables/simple-datatables.js') }}"></script>
-<script src="{{ asset('') }}"></script>
+<script src="{{ asset('js/script/penyidik.js') }}"></script>
 
 <script>
     let penyidikTable = document.querySelector('#penyidik-table');

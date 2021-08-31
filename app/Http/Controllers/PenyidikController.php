@@ -53,9 +53,11 @@ class PenyidikController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Penyidik $penyidik)
     {
-        //
+        $result = Penyidik::find($penyidik)->first();
+
+        return json_encode($result);
     }
 
     /**
@@ -76,9 +78,14 @@ class PenyidikController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Penyidik $penyidik)
     {
-        //
+        Penyidik::where('id_penyidik', $penyidik->id_penyidik)->update([
+            'instansi' => $request->instansi,
+            'alamat' => $request->alamat
+        ]);
+
+        return redirect('/penyidik')->with('status', 'Data Berhasil Diubah');
     }
 
     /**

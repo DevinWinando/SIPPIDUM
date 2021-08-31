@@ -70,9 +70,7 @@ class JaksaController extends Controller
      */
     public function edit(Jaksa $jaksa)
     {
-        $result = Jaksa::where('id_jaksa', $jaksa)->first();
-
-        echo json_encode($result);
+        // 
     }
 
     /**
