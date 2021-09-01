@@ -45,6 +45,12 @@
                             </a>
                         </li>
 
+                        <li class="sidebar-item">
+                            <a href="/perkara" class="sidebar-link">
+                                <i class="bi bi-grid-fill"></i>
+                                <span>perkara</span>
+                            </a>
+                        </li>
 
                         <li class="sidebar-item">
                             <a href="/jaksa" class="sidebar-link">

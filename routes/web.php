@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\JaksaController;
 use App\Http\Controllers\PenyidikController;
+use App\Http\Controllers\PerkaraController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,7 @@ use App\Http\Controllers\PenyidikController;
 
 Route::resource('jaksa', JaksaController::class);
 Route::resource('penyidik', PenyidikController::class);
-// Route::get('/', [JaksaController::class, 'index']);
+Route::resource('perkara', PerkaraController::class);
 Route::get('/', function () {
     return view('dashboard.index');
 });

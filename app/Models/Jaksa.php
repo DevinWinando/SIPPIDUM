@@ -9,11 +9,11 @@ class Jaksa extends Model
 {
     use HasFactory;
 
-    protected $table = 'jaksa',
-              $primaryKey = 'id_jaksa',
-              $fillable = [
-                  'nama',
-                  'nip',
-                  'jabatan'
-              ];
+    protected $table = 'jaksa';
+    protected $fillable = [ 
+                            'nama',
+                            'nip',
+                            'jabatan'
+                         ];
+    protected $primaryKey = 'id_jaksa';
 }
