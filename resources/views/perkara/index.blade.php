@@ -43,7 +43,7 @@
                 <tbody>
                     @foreach($perkara as $row)
                         <tr class="text-center">
-                            <td>{{ $row->nomor_perkara }}</td>
+                            <td>{{ $row->nomor }}</td>
                             <td>{{ $row->terdakwa->nama }}</td>
                             <td>{{ $row->jaksa->nama }}</td>
                             <td>{{ $row->penyidik->instansi }}</td>
@@ -54,66 +54,7 @@
                     @endforeach
                 </tbody>
             </table>
-            <button class="btn btn-info btn-add" data-bs-toggle="modal"
-            data-bs-target="#exampleModalCenter">Tambah Data</button>
-        </div>
-    </div>
-
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle">Vertically Centered
-                    </h5>
-                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                        <i data-feather="x"></i>
-                    </button>
-                </div>
-                <form class="form form-horizontal" method="post" id="modal-form">
-                    <div class="modal-body">
-                        <div class="form-body">
-                            <div class="row">
-                                <input type="hidden" name="_method" value="POST" id="modal-method">
-                                @csrf
-                                <div class="col-md-4">
-                                    <label>instansi</label>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <div class="position-relative">
-                                            <input type="text" class="form-control" name="instansi" autocomplete="off"
-                                                placeholder="Instansi" id="instansi">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <label>alamat</label>
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="form-group">
-                                        <div class="position-relative">
-                                            <input type="text" class="form-control" name="alamat" autocomplete="off"
-                                                placeholder="Alamat" id="alamat">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
-                            <i class="bx bx-x d-block d-sm-none"></i>
-                            <span class="d-none d-sm-block">Close</span>
-                        </button>
-                        <button type="submit" class="btn btn-primary ml-1">
-                            <i class="bx bx-check d-block d-sm-none"></i>
-                            <span class="d-none d-sm-block">Submit</span>
-                        </button>
-                    </div>
-                </form>
-            </div>
+            <a href="{{ url('/perkara/create') }}" class="btn btn-info btn-add">Tambah Data</a>
         </div>
     </div>
 

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Perkara;
+use App\Models\Jaksa;
+use App\Models\Penyidik;
+use App\Models\Terdakwa;
 use Illuminate\Http\Request;
 
 class PerkaraController extends Controller
@@ -27,7 +30,11 @@ class PerkaraController extends Controller
      */
     public function create()
     {
-        //
+        $jaksa = Jaksa::all();
+        $penyidik = Penyidik::all();
+        $terdakwa = Terdakwa::all();
+
+        return view('perkara.create', compact('jaksa', 'penyidik', 'terdakwa'));
     }
 
     /**
@@ -38,7 +45,7 @@ class PerkaraController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request;
     }
 
     /**
