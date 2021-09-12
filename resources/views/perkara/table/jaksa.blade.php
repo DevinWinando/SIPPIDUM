@@ -12,7 +12,7 @@
         <tbody>
             <tr class="text-center">
                 <td></td>
-                <td></td>
+                <td><input type="email" name="" disabled id=""></td>
                 <td></td>
                 <td></td>
             </tr>

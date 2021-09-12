@@ -16,7 +16,6 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
     <link rel="shortcut icon" href="{{ asset('images/favicon.svg') }}" type="image/x-icon" />
-
     @stack('link')
 </head>
 
@@ -165,23 +164,34 @@
 
                 <section id="footer">
                     <div class="container">
-                      <hr />
-                      <div class="footer">
-                        <div class="row justify-content-center">
-                          <div class="col-lg-4">Template by <a href="https://zuramai.github.io/mazer/" target="_blank" rel="noopener noreferrer">Ahmad Saugi</a></div>
-                          <div class="col-lg-4 text-center"><p>©2021. Built by Devin Winando</p></div>
-                          <div class="col-lg-4">
-                            <div class="icon d-lg-flex justify-content-end">
-                              <a href="https://github.com/DevinWinando" target="_blank" rel="noopener noreferrer" class="pe-3 text-dark"><i class="fab fa-github fa-1x"></i></a>
-                              <a href="https://www.linkedin.com/in/devin-winando-6a4427208/" target="_blank" rel="noopener noreferrer" class="pe-3 text-dark"><i class="fab fa-linkedin fa-1x"></i></a>
-                              <a href="https://www.facebook.com/profile.php?id=100004774064921" target="_blank" rel="noopener noreferrer" class="pe-3 text-dark"><i class="fab fa-facebook fa-1x"></i></a>
-                              <a href="https://www.instagram.com/devin.winando/" target="_blank" rel="noopener noreferrer" class="pe-3 text-dark"><i class="fab fa-instagram fa-1x"></i></a>
+                        <hr />
+                        <div class="footer">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-4">Template by <a href="https://zuramai.github.io/mazer/"
+                                        target="_blank" rel="noopener noreferrer">Ahmad Saugi</a></div>
+                                <div class="col-lg-4 text-center">
+                                    <p>©2021. Built by Devin Winando</p>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="icon d-lg-flex justify-content-end">
+                                        <a href="https://github.com/DevinWinando" target="_blank"
+                                            rel="noopener noreferrer" class="pe-3 text-dark"><i
+                                                class="fab fa-github fa-1x"></i></a>
+                                        <a href="https://www.linkedin.com/in/devin-winando-6a4427208/" target="_blank"
+                                            rel="noopener noreferrer" class="pe-3 text-dark"><i
+                                                class="fab fa-linkedin fa-1x"></i></a>
+                                        <a href="https://www.facebook.com/profile.php?id=100004774064921"
+                                            target="_blank" rel="noopener noreferrer" class="pe-3 text-dark"><i
+                                                class="fab fa-facebook fa-1x"></i></a>
+                                        <a href="https://www.instagram.com/devin.winando/" target="_blank"
+                                            rel="noopener noreferrer" class="pe-3 text-dark"><i
+                                                class="fab fa-instagram fa-1x"></i></a>
+                                    </div>
+                                </div>
                             </div>
-                          </div>
                         </div>
-                      </div>
                     </div>
-                  </section>
+                </section>
             </div>
 
         </div>
@@ -189,9 +199,9 @@
 
     <script src="{{ asset('vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
-    @stack('script')
-    
     <script src="{{ asset('js/main.js') }}"></script>
+    @livewireScripts
+
 </body>
 
 </html>

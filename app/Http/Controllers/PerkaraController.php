@@ -17,10 +17,10 @@ class PerkaraController extends Controller
      */
     public function index()
     {
-        $perkara = Perkara::all();
+        $perkara = Perkara::join('terdakwa', 'perkara.id_perkara', '=', 'terdakwa.id_perkara')
+        ->get();
 
         return view('perkara.index', compact('perkara'));
-        // return $perkara;
     }
 
     /**

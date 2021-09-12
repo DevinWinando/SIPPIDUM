@@ -4,7 +4,7 @@ namespace App\Http\Livewire\Perkara\Modal;
 
 use Livewire\Component;
 
-class ModalJaksa extends Component
+class Jaksa extends Component
 {
     public $jaksa;
     
@@ -15,6 +15,6 @@ class ModalJaksa extends Component
 
     public function render()
     {
-        return view('livewire.perkara.modal.modal-jaksa');
+        return view('livewire.perkara.modal.jaksa');
     }
 }

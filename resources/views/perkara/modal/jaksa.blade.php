@@ -1,3 +1,5 @@
+<button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modalJaksa">Jaksa</button>
+
 <div class="modal fade" id="modalJaksa" tabindex="-1" role="dialog" aria-labelledby="modalJaksaTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-xl"
