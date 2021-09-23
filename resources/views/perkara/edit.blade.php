@@ -16,6 +16,7 @@ SIPPIDUM - Edit Perkara
                     <div class="row justify-content-center">
                         <div class="col-11">
                             @csrf
+                            @method('PATCH')
                             <div class="form-body">
                                 <div class="row">
                                     <div class="col-md-3">
@@ -23,21 +24,21 @@ SIPPIDUM - Edit Perkara
                                     </div>
                                     <div class="col-md-9 form-group">
                                         <input type="text" class="form-control" name="nomor"
-                                            placeholder="Nomor Perkara">
+                                            placeholder="Nomor Perkara" value="{{ $perkara->nomor }}">
                                     </div>
                                     <div class="col-md-3">
                                         <label>Pasal yang dilanggar</label>
                                     </div>
                                     <div class="col-md-9 form-group">
                                         <input type="text" class="form-control" name="pasal"
-                                            placeholder="Pasal">
+                                            placeholder="Pasal" value="{{ $perkara->pasal }}">
                                     </div>
                                     <div class="col-md-3">
                                         <label>Klasifikasi Perkara</label>
                                     </div>
                                     <div class="col-md-9 form-group">
                                         <input type="text" class="form-control" name="klasifikasi"
-                                            placeholder="Klasifikasi">
+                                            placeholder="Klasifikasi" value="{{ $perkara->klasifikasi }}">
                                     </div>
                                     <div class="col-12">
                                         <div class="row">
@@ -51,13 +52,19 @@ SIPPIDUM - Edit Perkara
                                                             <th scope="col">No</th>
                                                             <th scope="col">Nama</th>
                                                             <th scope="col">Jabatan</th>
+                                                            <th scope="col">Action</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         <tr>
+                                                            <input type="hidden" name="jaksa" value="{{ $perkara->jaksa->id_jaksa }}">
                                                             <td class="text-center" style="width: 10%">1</td>
-                                                            <td style="width: 50%">{{ $perkara->jaksa->nama }}</td>
+                                                            <td style="width: 40%">{{ $perkara->jaksa->nama }}</td>
                                                             <td style="width: 40%">{{ $perkara->jaksa->jabatan }}</td>
+                                                            <td style="width: 10%">
+                                                                <button type="button" class="badge bg-info border-0 btn-edit" data-bs-toggle="modal"
+                                                                data-bs-target="#modalPenyidik">Ubah</button>
+                                                            </td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
@@ -77,13 +84,18 @@ SIPPIDUM - Edit Perkara
                                                             <th scope="col">No</th>
                                                             <th scope="col">Instansi</th>
                                                             <th scope="col">Alamat</th>
+                                                            <th scope="col">Action</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         <tr>
                                                             <td class="text-center" style="width: 10%">1</td>
-                                                            <td style="width: 50%">{{ $perkara->penyidik->instansi }}</td>
+                                                            <td style="width: 40%">{{ $perkara->penyidik->instansi }}</td>
                                                             <td style="width: 40%">{{ $perkara->penyidik->alamat }}</td>
+                                                            <td style="width: 10%">
+                                                                <button type="button" class="badge bg-info border-0 btn-edit" data-bs-toggle="modal"
+                                                                data-bs-target="#modalPenyidik">Ubah</button>
+                                                            </td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
