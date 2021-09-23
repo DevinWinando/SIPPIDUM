@@ -1,5 +1,5 @@
 <div>
-    <input type="hidden" name="penyidik" value="{{ $id_penyidik }}">
+    <input type="hidden" name="id_penyidik" value="{{ $id_penyidik }}">
     <table class="table table-striped" id="perkara-table">
         <thead>
             <tr>

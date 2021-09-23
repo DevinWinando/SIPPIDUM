@@ -17,8 +17,7 @@ class PerkaraController extends Controller
      */
     public function index()
     {
-        $perkara = Perkara::join('terdakwa', 'perkara.id_perkara', '=', 'terdakwa.id_perkara')
-        ->get();
+        $perkara = Perkara::get();
 
         return view('perkara.index', compact('perkara'));
     }
@@ -45,7 +44,26 @@ class PerkaraController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
+        $request->validate([
+            'nomor' => 'required',
+            'klasifikasi' => 'required',
+            'pasal' => 'required',
+            'id_penyidik' => 'required',
+            'id_jaksa' => 'required',
+            'disamarkan' => 'required'
+        ]);
+
+        $id = Perkara::insertGetId( ['nomor' => $request->nomor,
+        'klasifikasi' => $request->klasifikasi,
+        'pasal' => $request->pasal,
+        'id_penyidik' => $request->id_penyidik,
+        'id_jaksa' => $request->id_jaksa,
+        'disamarkan' => $request->disamarkan] );
+
+        // $perkara = Perkara::insertGetId(array($request->all(), 'id_perkara' => $id_perkara));
+
+        dd($id);
+        // return redirect('/perkara')->with('status', 'perkara berhasil ditambahkan');
     }
 
     /**
@@ -54,9 +72,9 @@ class PerkaraController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Perkara $perkara)
     {
-        //
+        return view('perkara.show', compact('perkara'));
     }
 
     /**
@@ -65,9 +83,9 @@ class PerkaraController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Perkara $perkara)
     {
-        //
+        return view('perkara.edit', compact('perkara'));
     }
 
     /**

@@ -9,6 +9,15 @@ class Perkara extends Model
 {
     use HasFactory;
     protected $table = 'perkara';
+    protected $primaryKey = 'id_perkara';
+    protected $fillable = [
+        'nomor',
+        'klasifikasi',
+        'pasal',
+        'id_penyidik',
+        'id_jaksa',
+        'disamarkan'
+    ];
 
     public function jaksa()
     {
@@ -17,11 +26,11 @@ class Perkara extends Model
 
     public function penyidik()
     {
-        return $this->belongsTo(penyidik::class, 'id_penyidik'); 
+        return $this->belongsTo(Penyidik::class, 'id_penyidik'); 
     }
 
     public function terdakwa()
     {
-        return $this->belongsTo(terdakwa::class, 'id_terdakwa'); 
+        return $this->hasMany(Terdakwa::class, 'id_perkara'); 
     }
 }

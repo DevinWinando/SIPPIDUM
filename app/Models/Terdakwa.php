@@ -10,4 +10,9 @@ class Terdakwa extends Model
     use HasFactory;
     protected $table = 'terdakwa';
     protected $primaryKey = 'id_terdakwa';
+
+    public function perkara()
+    {
+        $this->belongsTo(Perkara::class, 'id_terdakwa');
+    }
 }

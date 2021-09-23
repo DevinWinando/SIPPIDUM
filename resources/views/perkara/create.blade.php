@@ -21,24 +21,23 @@ SIPPIDUM - Tambah Perkara
                             @csrf
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label for="nomor-perkara-vertical">Nomor Perkara</label>
-                                    <input type="text" id="nomor-perkara-vertical" class="form-control" name="nomor"
+                                    <label for="nomor-perkara">Nomor Perkara</label>
+                                    <input type="text" id="nomor-perkara" class="form-control" name="nomor"
                                         placeholder="Nomor Perkara">
                                 </div>
                             </div>
 
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label for="pasal-id-vertical">Pasal</label>
-                                    <input type="text" id="pasal-id-vertical" class="form-control" name="pasal"
-                                        placeholder="Pasal">
+                                    <label for="pasal">Pasal</label>
+                                    <input type="text" id="pasal" class="form-control" name="pasal" placeholder="Pasal">
                                 </div>
                             </div>
 
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label for="klasifikasi-vertical">Klasifikasi</label>
-                                    <input type="text" id="klasifikasi-vertical" class="form-control" name="klasifikasi"
+                                    <label for="klasifikasi">Klasifikasi</label>
+                                    <input type="text" id="klasifikasi" class="form-control" name="klasifikasi"
                                         placeholder="Klasifikasi">
                                 </div>
                             </div>
@@ -50,18 +49,15 @@ SIPPIDUM - Tambah Perkara
 
                             <div class="col-12">
                                 <livewire:perkara.table.penyidik>
-                                    </livewire:perkara>
                                     <livewire:perkara.modal.penyidik :penyidik='$penyidik'>
-                                        </livewire:perkara.modal>
-
                             </div>
 
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label for="terdakwa-vertical">Terdakwa</label>
+                                    <label for="terdakwa">Terdakwa</label>
                                     <div class="d-flex">
-                                        <input type="text" id="terdakwa-vertical" class="form-control" name="terdakwa"
-                                            placeholder="Terdakwa">
+                                        {{-- <input type="text" id="terdakwa" class="form-control" name="terdakwa"
+                                            placeholder="Terdakwa"> --}}
                                         <button type="button" class="btn btn-info" data-bs-toggle="modal"
                                             data-bs-target="#modalTerdakwa">Terdakwa</button>
                                     </div>
@@ -70,11 +66,9 @@ SIPPIDUM - Tambah Perkara
 
                             <div class="col-12">
                                 <div class="form-group">
-                                    <label for="terdakwa-vertical">Disamarkan</label>
-                                    <div class="d-flex">
-                                        <input type="text" id="terdakwa-vertical" class="form-control" name="disamarkan"
-                                            placeholder="Terdakwa">
-                                    </div>
+                                    <label for="disamarkan">Disamarkan</label>
+                                    <input type='hidden' value='0' name='disamarkan'>
+                                    <input type='checkbox' value='1' name='disamarkan' id="disamarkan">
                                 </div>
                             </div>
 
@@ -88,12 +82,10 @@ SIPPIDUM - Tambah Perkara
             </div>
         </div>
     </div>
-    {{-- @include('perkara.modal.jaksa')
-@include('perkara.modal.penyidik')
-@include('perkara.modal.terdakwa') --}}
 
-@endsection
+    @endsection
 
-@push('script')
-@livewireScripts
-@endpush
+
+    @push('script')
+        @livewireScripts
+    @endpush

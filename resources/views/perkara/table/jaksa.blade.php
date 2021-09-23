@@ -1,5 +1,5 @@
 <div>
-    <input type="hidden" name="jaksa">
+    <input type="hidden" name="id_jaksa">
     <table class="table table-striped" id="perkara-table">
         <thead>
             <tr>
