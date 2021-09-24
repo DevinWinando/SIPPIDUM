@@ -43,13 +43,13 @@ SIPPIDUM - Tambah Perkara
                             </div>
 
                             <div class="col-12">
-                                <livewire:perkara.table.jaksa>
-                                    <livewire:perkara.modal.jaksa :jaksa='$jaksa'>
+                                <livewire:perkara.create.table.jaksa>
+                                    <livewire:perkara.create.modal.jaksa :jaksa='$jaksa'>
                             </div>
 
                             <div class="col-12">
-                                <livewire:perkara.table.penyidik>
-                                    <livewire:perkara.modal.penyidik :penyidik='$penyidik'>
+                                <livewire:perkara.create.table.penyidik>
+                                    <livewire:perkara.create.modal.penyidik :penyidik='$penyidik'>
                             </div>
 
                             <div class="col-12">

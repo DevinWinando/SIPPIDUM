@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Perkara\Table;
+namespace App\Http\Livewire\Perkara\Create\Table;
 
 use App\Models\Jaksa as ModelJaksa;
 use Livewire\Component;
@@ -27,6 +27,6 @@ class Jaksa extends Component
     }
     public function render()
     {
-        return view('livewire.perkara.table.jaksa');
+        return view('livewire.perkara.create.table.jaksa');
     }
 }

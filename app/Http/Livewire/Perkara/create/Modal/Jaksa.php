@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Perkara\Modal;
+namespace App\Http\Livewire\Perkara\Create\Modal;
 
 use Livewire\Component;
 
@@ -15,6 +15,6 @@ class Jaksa extends Component
 
     public function render()
     {
-        return view('livewire.perkara.modal.jaksa');
+        return view('livewire.perkara.create.modal.jaksa');
     }
 }

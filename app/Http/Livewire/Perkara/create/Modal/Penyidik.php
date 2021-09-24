@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Perkara\Modal;
+namespace App\Http\Livewire\Perkara\Create\Modal;
 
 use App\Models\Penyidik as ModelPenyidik;
 use Livewire\Component;
@@ -16,6 +16,6 @@ class Penyidik extends Component
 
     public function render()
     {
-        return view('livewire.perkara.modal.penyidik');
+        return view('livewire.perkara.create.modal.penyidik');
     }
 }

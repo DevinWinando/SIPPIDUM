@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Perkara\Table;
+namespace App\Http\Livewire\Perkara\Create\Table;
 
 use App\Models\Penyidik as ModelPenyidik;
 use Livewire\Component;
@@ -26,6 +26,6 @@ class Penyidik extends Component
 
     public function render()
     {
-        return view('livewire.perkara.table.penyidik');
+        return view('livewire.perkara.create.table.penyidik');
     }
 }
