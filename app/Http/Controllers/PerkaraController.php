@@ -31,9 +31,8 @@ class PerkaraController extends Controller
     {
         $jaksa = Jaksa::all();
         $penyidik = Penyidik::all();
-        $terdakwa = Terdakwa::all();
 
-        return view('perkara.create', compact('jaksa', 'penyidik', 'terdakwa'));
+        return view('perkara.create', compact('jaksa', 'penyidik'));
     }
 
     /**
@@ -74,6 +73,8 @@ class PerkaraController extends Controller
      */
     public function show(Perkara $perkara)
     {
+        
+        
         return view('perkara.show', compact('perkara'));
     }
 
@@ -85,7 +86,10 @@ class PerkaraController extends Controller
      */
     public function edit(Perkara $perkara)
     {
-        return view('perkara.edit', compact('perkara'));
+        $jaksa = Jaksa::all();
+        $penyidik = Penyidik::all();
+
+        return view('perkara.edit', compact('perkara', 'jaksa', 'penyidik'));
     }
 
     /**

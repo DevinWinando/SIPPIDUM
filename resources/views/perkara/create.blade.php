@@ -6,7 +6,7 @@ SIPPIDUM - Tambah Perkara
 
 @push('link')
     @livewireStyles
-@endpush
+    @endpush
 
     @section('main')
     <div class="card">
@@ -43,13 +43,13 @@ SIPPIDUM - Tambah Perkara
                             </div>
 
                             <div class="col-12">
-                                <livewire:perkara.create.table.jaksa>
-                                    <livewire:perkara.create.modal.jaksa :jaksa='$jaksa'>
+                                <livewire:perkara.create.table.jaksa />
+                                <livewire:perkara.create.modal.jaksa :jaksa='$jaksa' />
                             </div>
 
                             <div class="col-12">
-                                <livewire:perkara.create.table.penyidik>
-                                    <livewire:perkara.create.modal.penyidik :penyidik='$penyidik'>
+                                <livewire:perkara.create.table.penyidik />
+                                <livewire:perkara.create.modal.penyidik :penyidik='$penyidik' />
                             </div>
 
                             <div class="col-12">
@@ -88,4 +88,4 @@ SIPPIDUM - Tambah Perkara
 
     @push('script')
         @livewireScripts
-    @endpush
+        @endpush

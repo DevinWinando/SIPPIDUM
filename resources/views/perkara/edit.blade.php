@@ -46,28 +46,8 @@ SIPPIDUM - Edit Perkara
                                                 <p>Jaksa</p>
                                             </div>
                                             <div class="col">
-                                                <table class="table table-bordered table-hover">
-                                                    <thead class="table-secondary">
-                                                        <tr class="text-center">
-                                                            <th scope="col">No</th>
-                                                            <th scope="col">Nama</th>
-                                                            <th scope="col">Jabatan</th>
-                                                            <th scope="col">Action</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <input type="hidden" name="jaksa" value="{{ $perkara->jaksa->id_jaksa }}">
-                                                            <td class="text-center" style="width: 10%">1</td>
-                                                            <td style="width: 40%">{{ $perkara->jaksa->nama }}</td>
-                                                            <td style="width: 40%">{{ $perkara->jaksa->jabatan }}</td>
-                                                            <td style="width: 10%">
-                                                                <button type="button" class="badge bg-info border-0 btn-edit" data-bs-toggle="modal"
-                                                                data-bs-target="#modalPenyidik">Ubah</button>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
+                                                <livewire:perkara.edit.table.jaksa :perkara="$perkara" />
+                                                <livewire:perkara.edit.modal.jaksa :jaksa="$jaksa">
                                             </div>
                                         </div>
                                     </div>
@@ -78,27 +58,8 @@ SIPPIDUM - Edit Perkara
                                                 <p>Penyidik</p>
                                             </div>
                                             <div class="col">
-                                                <table class="table table-bordered table-hover">
-                                                    <thead class="table-secondary">
-                                                        <tr class="text-center">
-                                                            <th scope="col">No</th>
-                                                            <th scope="col">Instansi</th>
-                                                            <th scope="col">Alamat</th>
-                                                            <th scope="col">Action</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td class="text-center" style="width: 10%">1</td>
-                                                            <td style="width: 40%">{{ $perkara->penyidik->instansi }}</td>
-                                                            <td style="width: 40%">{{ $perkara->penyidik->alamat }}</td>
-                                                            <td style="width: 10%">
-                                                                <button type="button" class="badge bg-info border-0 btn-edit" data-bs-toggle="modal"
-                                                                data-bs-target="#modalPenyidik">Ubah</button>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
+                                                <livewire:perkara.edit.table.penyidik :perkara="$perkara" />
+                                                <livewire:perkara.edit.modal.penyidik :penyidik='$penyidik' />
                                             </div>
                                         </div>
                                     </div>
