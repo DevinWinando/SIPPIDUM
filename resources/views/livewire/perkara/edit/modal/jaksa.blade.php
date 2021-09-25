@@ -29,7 +29,7 @@
                                 <td>{{ $row->jabatan }}</td>
                                 <td>
                                     <button class="badge bg-info border-0 btn-edit" type="button"
-                                        wire:click="$emitTo('perkara.table.jaksa', 'showJaksa', {{ $row->id_jaksa }})">Pilih
+                                        wire:click="$emitTo('perkara.edit.table.jaksa', 'editJaksa', {{ $row->id_jaksa }})">Pilih
                                     </button>
                                 </td>
                             </tr>

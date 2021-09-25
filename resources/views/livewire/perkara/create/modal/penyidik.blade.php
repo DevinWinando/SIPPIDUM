@@ -29,7 +29,7 @@
                                 <td>{{ $row->instansi }}</td>
                                 <td>{{ $row->alamat }}</td>
                                 <td>
-                                    <button class="badge bg-info border-0 btn-edit" type="button" wire:click="$emitTo('perkara.table.penyidik', 'showPenyidik', {{ $row->id_penyidik }})">Pilih</button>
+                                    <button class="badge bg-info border-0 btn-edit" type="button" wire:click="$emitTo('perkara.create.table.penyidik', 'showPenyidik', {{ $row->id_penyidik }})">Pilih</button>
                                 </td>
                             </tr>
                         @endforeach

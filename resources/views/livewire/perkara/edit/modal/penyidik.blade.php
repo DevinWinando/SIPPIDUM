@@ -27,7 +27,7 @@
                                 <td>{{ $row->alamat }}</td>
                                 <td>
                                     <button class="badge bg-info border-0 btn-edit" type="button"
-                                        wire:click="$emitTo('perkara.table.penyidik', 'showPenyidik', {{ $row->id_penyidik }})">Pilih</button>
+                                        wire:click="$emitTo('perkara.edit.table.penyidik', 'editPenyidik', {{ $row->id_penyidik }})">Pilih</button>
                                 </td>
                             </tr>
                         @endforeach

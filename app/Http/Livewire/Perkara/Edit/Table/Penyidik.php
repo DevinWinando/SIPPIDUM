@@ -2,15 +2,25 @@
 
 namespace App\Http\Livewire\Perkara\Edit\Table;
 
+use App\Models\Penyidik as ModelPenyidik;
 use Livewire\Component;
 
 class Penyidik extends Component
 {
-    public $perkara;
+    public $penyidik;
 
-    public function mount($perkara)
+    protected $listeners = ['editPenyidik'];
+
+    public function editPenyidik(ModelPenyidik $penyidik)
     {
-        $this->perkara = $perkara;
+        $this->penyidik->id_penyidik = $penyidik->id_penyidik;
+        $this->penyidik->instansi = $penyidik->instansi;
+        $this->penyidik->alamat = $penyidik->alamat;
+    }
+
+    public function mount($penyidik)
+    {
+        $this->penyidik = $penyidik;
     }
     public function render()
     {

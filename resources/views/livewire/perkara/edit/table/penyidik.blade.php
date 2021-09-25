@@ -9,9 +9,10 @@
     </thead>
     <tbody>
         <tr>
+            <input type="hidden" name="penyidik" value="{{ $penyidik->id_penyidik }}">
             <td class="text-center" style="width: 10%">1</td>
-            <td style="width: 40%">{{ $perkara->penyidik->instansi }}</td>
-            <td style="width: 40%">{{ $perkara->penyidik->alamat }}</td>
+            <td style="width: 40%">{{ $penyidik->instansi }}</td>
+            <td style="width: 40%">{{ $penyidik->alamat }}</td>
             <td style="width: 10%">
                 <button type="button" class="badge bg-info border-0 btn-edit" data-bs-toggle="modal"
                 data-bs-target="#modalPenyidik">Ubah</button>

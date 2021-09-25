@@ -43,6 +43,7 @@ class PerkaraController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request);
         $request->validate([
             'nomor' => 'required',
             'klasifikasi' => 'required',
@@ -60,8 +61,7 @@ class PerkaraController extends Controller
         'disamarkan' => $request->disamarkan] );
 
         // $perkara = Perkara::insertGetId(array($request->all(), 'id_perkara' => $id_perkara));
-
-        dd($id);
+        
         // return redirect('/perkara')->with('status', 'perkara berhasil ditambahkan');
     }
 
@@ -101,7 +101,7 @@ class PerkaraController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        dd($request);
     }
 
     /**

@@ -9,10 +9,10 @@
     </thead>
     <tbody>
         <tr>
-            <input type="hidden" name="jaksa" value="{{ $perkara->jaksa->id_jaksa }}">
+            <input type="hidden" name="jaksa" value="{{ $jaksa->id_jaksa }}">
             <td class="text-center" style="width: 10%">1</td>
-            <td style="width: 40%">{{ $perkara->jaksa->nama }}</td>
-            <td style="width: 40%">{{ $perkara->jaksa->jabatan }}</td>
+            <td style="width: 40%">{{ $jaksa->nama }}</td>
+            <td style="width: 40%">{{ $jaksa->jabatan }}</td>
             <td style="width: 10%">
                 <button type="button" class="badge bg-info border-0 btn-edit" data-bs-toggle="modal"
                     data-bs-target="#modalJaksa">Ubah</button>

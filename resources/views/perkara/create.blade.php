@@ -15,60 +15,133 @@ SIPPIDUM - Tambah Perkara
         </div>
         <div class="card-content">
             <div class="card-body">
-                <form class="form form-vertical" action="{{ url('perkara') }}" method="POST">
+                <form class="form form-horizontal" action="{{ url('perkara') }}" method="POST">
                     <div class="form-body">
                         <div class="row justify-content-center">
-                            @csrf
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <label for="nomor-perkara">Nomor Perkara</label>
-                                    <input type="text" id="nomor-perkara" class="form-control" name="nomor"
-                                        placeholder="Nomor Perkara">
-                                </div>
-                            </div>
-
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <label for="pasal">Pasal</label>
-                                    <input type="text" id="pasal" class="form-control" name="pasal" placeholder="Pasal">
-                                </div>
-                            </div>
-
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <label for="klasifikasi">Klasifikasi</label>
-                                    <input type="text" id="klasifikasi" class="form-control" name="klasifikasi"
-                                        placeholder="Klasifikasi">
-                                </div>
-                            </div>
-
-                            <div class="col-12">
-                                <livewire:perkara.create.table.jaksa />
-                                <livewire:perkara.create.modal.jaksa :jaksa='$jaksa' />
-                            </div>
-
-                            <div class="col-12">
-                                <livewire:perkara.create.table.penyidik />
-                                <livewire:perkara.create.modal.penyidik :penyidik='$penyidik' />
-                            </div>
-
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <label for="terdakwa">Terdakwa</label>
-                                    <div class="d-flex">
-                                        {{-- <input type="text" id="terdakwa" class="form-control" name="terdakwa"
-                                            placeholder="Terdakwa"> --}}
-                                        <button type="button" class="btn btn-info" data-bs-toggle="modal"
-                                            data-bs-target="#modalTerdakwa">Terdakwa</button>
+                            <div class="col-11">
+                                @csrf
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label for="nomor-perkara">Nomor Perkara</label>
+                                    </div>
+                                    <div class="col-md-9 form-group">
+                                        <input type="text" id="nomor-perkara" class="form-control" name="nomor"
+                                            placeholder="Nomor Perkara">
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="col-12">
-                                <div class="form-group">
-                                    <label for="disamarkan">Disamarkan</label>
-                                    <input type='hidden' value='0' name='disamarkan'>
-                                    <input type='checkbox' value='1' name='disamarkan' id="disamarkan">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label for="pasal-perkara">Pasal yang Dilanggar</label>
+                                    </div>
+                                    <div class="col-md-9 form-group">
+                                        <input type="text" id="pasal-perkara" class="form-control" name="pasal"
+                                            placeholder="pasal">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label for="klasifikasi-perkara">Klasifikasi Perkara</label>
+                                    </div>
+                                    <div class="col-md-9 form-group">
+                                        <input type="text" id="klasifikasi-perkara" class="form-control"
+                                            name="klasifikasi" placeholder="Klasifikasi">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label>Terdakwa</label>
+                                    </div>
+                                    <div class="col-md-9 form-group">
+                                        <table class="table table-bordered table-hover">
+                                            <thead class="table-secondary">
+                                                <tr class="text-center">
+                                                    <th scope="col">No</th>
+                                                    <th scope="col">Nama</th>
+                                                    <th scope="col">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tbody-terdakwa">
+                                                <tr id="row-terdakwa">
+                                                    <td class="text-center" style="width: 10%">1</td>
+                                                    <td style="width: 50%"></td>
+                                                    <td style="width: 40%" class="text-center">
+                                                        <button type="button" class="badge bg-success border-0" data-bs-toggle="modal" data-bs-target="#modalTerdakwa">Edit</button>
+                                                        <button type="button" class="badge bg-danger border-0" id="delete-terdakwa">Hapus</button>
+                                                        <button type="button" class="badge bg-info border-0" id="add-terdakwa">Tambah</button>
+                                                    </td>
+                                                    <div>
+                                                        <div class="modal fade" id="modalTerdakwa" tabindex="-1" role="dialog" aria-labelledby="modalTerdakwaTitle"
+                                                            aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-xl"
+                                                                role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title" id="modalTerdakwaTitle">Terdakwa</h5>
+                                                                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                                                            <i data-feather="x"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                       
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                                                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                                                            <span class="d-none d-sm-block">Close</span>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                        @push('script')
+                                            <script src="{{ asset('js/script/perkara/create.js') }}"></script>
+                                        @endpush
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label>Jaksa</label>
+                                    </div>
+                                    <div class="col-md-9 form-group">
+                                        <livewire:perkara.create.table.jaksa />
+                                        <livewire:perkara.create.modal.jaksa :jaksa='$jaksa' />
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label>Penyidik</label>
+                                    </div>
+                                    <div class="col-md-9 form-group">
+                                        <livewire:perkara.create.table.penyidik />
+                                        <livewire:perkara.create.modal.penyidik :penyidik='$penyidik' />
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label>Status</label>
+                                    </div>
+                                    <div class="col-md-9 form-group">
+                                        <div class="form-group">
+                                            <input type='hidden' value='0' name='disamarkan'>
+                                            <input type='checkbox' value='1' name='disamarkan' id="disamarkan">
+                                            <label for="disamarkan">Disamarkan</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+
                                 </div>
                             </div>
 
@@ -88,4 +161,4 @@ SIPPIDUM - Tambah Perkara
 
     @push('script')
         @livewireScripts
-        @endpush
+    @endpush
