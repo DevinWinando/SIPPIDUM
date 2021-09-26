@@ -54,7 +54,7 @@ SIPPIDUM - Tambah Perkara
                                     <div class="col-md-3">
                                         <label>Terdakwa</label>
                                     </div>
-                                    <div class="col-md-9 form-group">
+                                    <div class="col-md-8 form-group">
                                         <table class="table table-bordered table-hover">
                                             <thead class="table-secondary">
                                                 <tr class="text-center">
@@ -69,9 +69,9 @@ SIPPIDUM - Tambah Perkara
                                                     <td style="width: 50%"></td>
                                                     <td style="width: 40%" class="text-center">
                                                         <button type="button" class="badge bg-success border-0" data-bs-toggle="modal" data-bs-target="#modalTerdakwa">Edit</button>
-                                                        <button type="button" class="badge bg-danger border-0" id="delete-terdakwa">Hapus</button>
-                                                        <button type="button" class="badge bg-info border-0" id="add-terdakwa">Tambah</button>
+                                                        <button type="button" class="badge bg-danger border-0 delete-btn">Hapus</button>
                                                     </td>
+
                                                     <div>
                                                         <div class="modal fade" id="modalTerdakwa" tabindex="-1" role="dialog" aria-labelledby="modalTerdakwaTitle"
                                                             aria-hidden="true">
@@ -100,10 +100,13 @@ SIPPIDUM - Tambah Perkara
                                                 </tr>
                                             </tbody>
                                         </table>
-
+                                        
                                         @push('script')
-                                            <script src="{{ asset('js/script/perkara/create.js') }}"></script>
+                                        <script src="{{ asset('js/script/perkara/create.js') }}"></script>
                                         @endpush
+                                    </div>
+                                    <div class="col-md-1">
+                                        <button type="button" class="badge bg-info border-0" id="add-terdakwa">Tambah</button>
                                     </div>
                                 </div>
 
