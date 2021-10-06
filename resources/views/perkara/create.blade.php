@@ -55,6 +55,65 @@ SIPPIDUM - Tambah Perkara
                                         <label>Terdakwa</label>
                                     </div>
                                     <div class="col-md-8 form-group">
+                                        <div id="modals">
+                                            <div class="modal fade" id="modal-terdakwa-1" tabindex="-1" role="dialog" aria-labelledby="modalTerdakwaTitle"
+                                                aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-xl"
+                                                    role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="modalTerdakwaTitle">Terdakwa</h5>
+                                                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                                                <i data-feather="x"></i>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form class="form form-horizontal">
+                                                                <div class="form-body mt-3">
+                                                                    <div class="row justify-content-center">
+                                                                        <div class="col-md-3">
+                                                                            <label>Nama</label>
+                                                                        </div>
+                                                                        <div class="col-md-7 form-group">
+                                                                            <input type="text" id="nama" class="form-control" name="fname"
+                                                                                placeholder="Nama">
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                            <label>Email</label>
+                                                                        </div>
+                                                                        <div class="col-md-7 form-group">
+                                                                            <input type="text" id="alamat" class="form-control" name="alamat"
+                                                                                placeholder="Alamat">
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                            <label>Tempat/Tanggal Lahir</label>
+                                                                        </div>
+                                                                        <div class="col-md-7 form-group">
+                                                                            <input type="text" id="ttl" class="form-control" name="ttl"
+                                                                                placeholder="Tempat/Tanggal Lahir">
+                                                                        </div>
+                                                                        <div class="col-md-3">
+                                                                            <label>Usia</label>
+                                                                        </div>
+                                                                        <div class="col-md-7 form-group">
+                                                                            <input type="number" id="usia" class="form-control" name="usia"
+                                                                                placeholder="Usia">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <div class="col-sm-12 d-flex justify-content-end">
+                                                                <button type="button" class="btn btn-light-secondary me-1 mb-1" data-bs-dismiss="modal" aria-label="Close">batal</button>
+                                                                <button type="button"
+                                                                    class="btn btn-primary me-1 mb-1" data-bs-dismiss="modal" aria-label="Close"> Submit</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <table class="table table-bordered table-hover">
                                             <thead class="table-secondary">
                                                 <tr class="text-center">
@@ -64,39 +123,13 @@ SIPPIDUM - Tambah Perkara
                                                 </tr>
                                             </thead>
                                             <tbody id="tbody-terdakwa">
-                                                <tr id="row-terdakwa">
+                                                <tr id="row-terdakwa-1">
                                                     <td class="text-center" style="width: 10%">1</td>
                                                     <td style="width: 50%"></td>
                                                     <td style="width: 40%" class="text-center">
-                                                        <button type="button" class="badge bg-success border-0" data-bs-toggle="modal" data-bs-target="#modalTerdakwa">Edit</button>
+                                                        <button type="button" class="badge bg-success border-0" data-bs-toggle="modal" data-bs-target="#modal-terdakwa-1">Edit</button>
                                                         <button type="button" class="badge bg-danger border-0 delete-btn">Hapus</button>
                                                     </td>
-
-                                                    <div>
-                                                        <div class="modal fade" id="modalTerdakwa" tabindex="-1" role="dialog" aria-labelledby="modalTerdakwaTitle"
-                                                            aria-hidden="true">
-                                                            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-xl"
-                                                                role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title" id="modalTerdakwaTitle">Terdakwa</h5>
-                                                                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                                                            <i data-feather="x"></i>
-                                                                        </button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                       
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
-                                                                            <i class="bx bx-x d-block d-sm-none"></i>
-                                                                            <span class="d-none d-sm-block">Close</span>
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
                                                 </tr>
                                             </tbody>
                                         </table>
