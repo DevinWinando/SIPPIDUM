@@ -52,8 +52,23 @@ class PerkaraController extends Controller
             'pasal' => 'required',
             'id_penyidik' => 'required',
             'id_jaksa' => 'required',
-            'disamarkan' => 'required'
-        ]);
+            'terdakwa.nama' => 'required',
+            'terdakwa.alamat' => 'required',
+            'terdakwa.ttl' => 'required',
+            'terdakwa.usia' => 'required',
+        ],
+        [
+            'nomor.required' => 'Nomor perkara wajib diisi',
+            'klasifikasi.required' => 'Klasifikasi wajib diisi',
+            'pasal.required' => 'Pasal wajib diisi',
+            'id_penyidik.required' => 'Penyidik wajib diisi',
+            'id_jaksa.required' => 'Jaksa wajib diisi',
+            'terdakwa.nama.required' => 'Nama terdakwa wajib diisi',
+            'terdakwa.alamat.required' => 'Alamat terdakwa wajib diisi',
+            'terdakwa.ttl.required' => 'TTL terdakwa wajib diisi',
+            'terdakwa.usia.required' => 'Usia terdakwa wajib diisi'
+        ]
+    );
         
         DB::beginTransaction();
         try {
@@ -75,6 +90,7 @@ class PerkaraController extends Controller
             }
             
             DB::commit();
+            
         } catch (Exception $e) {
             DB::rollback();
             throw $e;
@@ -127,8 +143,11 @@ class PerkaraController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Perkara $perkara)
     {
-        //
+        Terdakwa::where('id_perkara', $perkara->id_perkara)->delete();
+        Perkara::destroy($perkara->id_perkara);
+
+        return redirect('/perkara')->with('status', 'Data Berhasil Dihapus');
     }
 }

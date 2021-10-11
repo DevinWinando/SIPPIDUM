@@ -1,5 +1,11 @@
 <div>
-    <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modalJaksa">Jaksa</button>
+    <button type="button" class="btn btn-info @error('id_jaksa')border border-3 border-danger @enderror"
+        data-bs-toggle="modal" data-bs-target="#modalJaksa">Jaksa</button>
+    @error('id_jaksa')
+    <p class="text-danger">
+        {{ $message }}
+    </p>
+    @enderror
 
     <div class="modal fade" id="modalJaksa" tabindex="-1" role="dialog" aria-labelledby="modalJaksaTitle"
         aria-hidden="true">
@@ -25,17 +31,17 @@
                         </thead>
                         <tbody>
                             @foreach($jaksa as $row)
-                                <tr class="text-center">
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $row->nama }}</td>
-                                    <td>{{ $row->nip }}</td>
-                                    <td>{{ $row->jabatan }}</td>
-                                    <td>
-                                        <button class="badge bg-info border-0 btn-edit" type="button"
-                                            wire:click="$emitTo('perkara.create.table.jaksa', 'showJaksa', {{ $row->id_jaksa }})">Pilih
-                                        </button>
-                                    </td>
-                                </tr>
+                            <tr class="text-center">
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $row->nama }}</td>
+                                <td>{{ $row->nip }}</td>
+                                <td>{{ $row->jabatan }}</td>
+                                <td>
+                                    <button class="badge bg-info border-0 btn-edit" type="button"
+                                        wire:click="$emitTo('perkara.create.table.jaksa', 'showJaksa', {{ $row->id_jaksa }})">Pilih
+                                    </button>
+                                </td>
+                            </tr>
                             @endforeach
                         </tbody>
                     </table>
