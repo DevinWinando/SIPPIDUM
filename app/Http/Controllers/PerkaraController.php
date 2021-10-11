@@ -6,6 +6,9 @@ use App\Models\Perkara;
 use App\Models\Jaksa;
 use App\Models\Penyidik;
 use App\Models\Terdakwa;
+
+use Illuminate\Support\facades\DB;
+use Exception;
 use Illuminate\Http\Request;
 
 class PerkaraController extends Controller
@@ -43,7 +46,6 @@ class PerkaraController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
         $request->validate([
             'nomor' => 'required',
             'klasifikasi' => 'required',
@@ -52,17 +54,34 @@ class PerkaraController extends Controller
             'id_jaksa' => 'required',
             'disamarkan' => 'required'
         ]);
+        
+        DB::beginTransaction();
+        try {
+            $id_perkara = Perkara::insertGetId(['nomor' => $request->nomor,
+            'klasifikasi' => $request->klasifikasi,
+            'pasal' => $request->pasal,
+            'id_penyidik' => $request->id_penyidik,
+            'id_jaksa' => $request->id_jaksa,
+            'disamarkan' => $request->disamarkan]);
 
-        $id = Perkara::insertGetId( ['nomor' => $request->nomor,
-        'klasifikasi' => $request->klasifikasi,
-        'pasal' => $request->pasal,
-        'id_penyidik' => $request->id_penyidik,
-        'id_jaksa' => $request->id_jaksa,
-        'disamarkan' => $request->disamarkan] );
-
+            foreach($request->terdakwa as $terdakwa){
+                Terdakwa::insert([
+                    'id_perkara' => $id_perkara,
+                    'nama' => $terdakwa['nama'],
+                    'alamat' => $terdakwa['alamat'],
+                    'ttl' => $terdakwa['ttl'],
+                    'usia' => $terdakwa['usia'],
+                ]);
+            }
+            
+            DB::commit();
+        } catch (Exception $e) {
+            DB::rollback();
+            throw $e;
+        }
         // $perkara = Perkara::insertGetId(array($request->all(), 'id_perkara' => $id_perkara));
         
-        // return redirect('/perkara')->with('status', 'perkara berhasil ditambahkan');
+        return redirect('/perkara/'. $id_perkara)->with('status', 'perkara berhasil ditambahkan');
     }
 
     /**
@@ -73,8 +92,6 @@ class PerkaraController extends Controller
      */
     public function show(Perkara $perkara)
     {
-        
-        
         return view('perkara.show', compact('perkara'));
     }
 

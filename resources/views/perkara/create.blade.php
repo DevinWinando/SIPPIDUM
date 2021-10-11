@@ -75,28 +75,28 @@ SIPPIDUM - Tambah Perkara
                                                                             <label>Nama</label>
                                                                         </div>
                                                                         <div class="col-md-7 form-group">
-                                                                            <input type="text" id="nama" class="form-control" name="fname"
+                                                                            <input type="text" id="nama" class="form-control" name="terdakwa[0][nama]"
                                                                                 placeholder="Nama">
                                                                         </div>
                                                                         <div class="col-md-3">
                                                                             <label>Email</label>
                                                                         </div>
                                                                         <div class="col-md-7 form-group">
-                                                                            <input type="text" id="alamat" class="form-control" name="alamat"
+                                                                            <input type="text" id="alamat" class="form-control" name="terdakwa[0][alamat]"
                                                                                 placeholder="Alamat">
                                                                         </div>
                                                                         <div class="col-md-3">
                                                                             <label>Tempat/Tanggal Lahir</label>
                                                                         </div>
                                                                         <div class="col-md-7 form-group">
-                                                                            <input type="text" id="ttl" class="form-control" name="ttl"
+                                                                            <input type="text" id="ttl" class="form-control" name="terdakwa[0][ttl]"
                                                                                 placeholder="Tempat/Tanggal Lahir">
                                                                         </div>
                                                                         <div class="col-md-3">
                                                                             <label>Usia</label>
                                                                         </div>
                                                                         <div class="col-md-7 form-group">
-                                                                            <input type="number" id="usia" class="form-control" name="usia"
+                                                                            <input type="number" id="usia" class="form-control" name="terdakwa[0][usia]"
                                                                                 placeholder="Usia">
                                                                         </div>
                                                                     </div>
@@ -135,7 +135,7 @@ SIPPIDUM - Tambah Perkara
                                         </table>
                                         
                                         @push('script')
-                                        <script src="{{ asset('js/script/perkara/create.js') }}"></script>
+                                          <script src="{{ asset('js/script/perkara/create.js') }}"></script>
                                         @endpush
                                     </div>
                                     <div class="col-md-1">

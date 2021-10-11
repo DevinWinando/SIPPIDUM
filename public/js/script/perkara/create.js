@@ -1,10 +1,19 @@
 const btnAddTerdakwa = document.getElementById("add-terdakwa");
 
 let indexRow = 1;
+
+function getNextSiblings(el, filter) {
+    let siblings = [];
+    while ((el = el.nextSibling)) {
+        if (!filter || filter(el)) siblings.push(el);
+    }
+    return siblings;
+}
+
 btnAddTerdakwa.addEventListener("click", () => {
     if (indexRow <= 8) {
         indexRow++;
-        const modalTerdakwa = `<div class="modal fade" id="modal-terdakwa-${indexRow}" tabindex="-1" role="dialog" aria-labelledby="modal-terdakwa-title"
+        const modalTerdakwa = `<div class="modal fade" id="modal-terdakwa-${indexRow}" tabindex="-1" role="dialog"      aria-labelledby="modal-terdakwa-title"
                                     aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-xl"
                                         role="document">
@@ -23,28 +32,36 @@ btnAddTerdakwa.addEventListener("click", () => {
                                                                 <label>Nama</label>
                                                             </div>
                                                             <div class="col-md-7 form-group">
-                                                                <input type="text" id="nama" class="form-control" name="fname"
+                                                                <input type="text" id="nama" class="form-control" name="terdakwa[${
+                                                                    indexRow - 1
+                                                                }][nama]"
                                                                     placeholder="Nama">
                                                             </div>
                                                             <div class="col-md-3">
                                                                 <label>Email</label>
                                                             </div>
                                                             <div class="col-md-7 form-group">
-                                                                <input type="text" id="alamat" class="form-control" name="alamat"
+                                                                <input type="text" id="alamat" class="form-control" name="terdakwa[${
+                                                                    indexRow - 1
+                                                                }][alamat]"
                                                                     placeholder="Alamat">
                                                             </div>
                                                             <div class="col-md-3">
                                                                 <label>Tempat/Tanggal Lahir</label>
                                                             </div>
                                                             <div class="col-md-7 form-group">
-                                                                <input type="text" id="ttl" class="form-control" name="ttl"
+                                                                <input type="text" id="ttl" class="form-control" name="terdakwa[${
+                                                                    indexRow - 1
+                                                                }][ttl]"
                                                                     placeholder="Tempat/Tanggal Lahir">
                                                             </div>
                                                             <div class="col-md-3">
                                                                 <label>Usia</label>
                                                             </div>
                                                             <div class="col-md-7 form-group">
-                                                                <input type="number" id="usia" class="form-control" name="usia"
+                                                                <input type="number" id="usia" class="form-control" name="terdakwa[${
+                                                                    indexRow - 1
+                                                                }][usia]"
                                                                     placeholder="Usia">
                                                             </div>
                                                         </div>
@@ -85,14 +102,16 @@ document.addEventListener("click", (e) => {
         const row = e.target.parentElement.parentElement;
         const id = e.target.id;
         const modal = document.getElementById("modal-terdakwa-" + id);
-        let elementRow = getNextSiblings(row);
-        let elementModal = getNextSiblings(modal);
+
+        const elementRow = getNextSiblings(row);
+        const elementModal = getNextSiblings(modal);
 
         elementRow.forEach((e) => {
-            let indexRows = parseInt(e.id.substring(e.id.length - 1)) - 1;
-            let tableNumber = e.children[0];
-            let buttonDelete = e.children[2].children[1];
-            let buttonEdit = e.children[2].children[0];
+            const indexRows = parseInt(e.id.substring(e.id.length - 1)) - 1;
+
+            const tableNumber = e.children[0];
+            const buttonDelete = e.children[2].children[1];
+            const buttonEdit = e.children[2].children[0];
 
             buttonDelete.setAttribute("id", indexRows);
             buttonEdit.dataset.bsTarget = "#modal-terdakwa-" + indexRows;
@@ -101,7 +120,28 @@ document.addEventListener("click", (e) => {
         });
 
         elementModal.forEach((e) => {
-            let indexModal = parseInt(e.id.substring(e.id.length - 1));
+            const indexModal = parseInt(e.id.substring(e.id.length - 1));
+            const indexName = indexModal - 1;
+            const inputNama = document.querySelector(
+                "#modal-terdakwa-" + indexModal + " #nama"
+            );
+            const inputAlamat = document.querySelector(
+                "#modal-terdakwa-" + indexModal + " #alamat"
+            );
+            const inputTTL = document.querySelector(
+                "#modal-terdakwa-" + indexModal + " #ttl"
+            );
+            const inputUsia = document.querySelector(
+                "#modal-terdakwa-" + indexModal + " #usia"
+            );
+
+            inputNama.setAttribute("name", `terdakwa[${indexName - 1}][nama]`);
+            inputAlamat.setAttribute(
+                "name",
+                `terdakwa[${indexName - 1}][alamat]`
+            );
+            inputTTL.setAttribute("name", `terdakwa[${indexName - 1}][ttl]`);
+            inputUsia.setAttribute("name", `terdakwa[${indexName - 1}][usia]`);
             e.setAttribute("id", `modal-terdakwa-${indexModal - 1}`);
         });
 
@@ -110,11 +150,3 @@ document.addEventListener("click", (e) => {
         indexRow--;
     }
 });
-
-function getNextSiblings(el, filter) {
-    var siblings = [];
-    while ((el = el.nextSibling)) {
-        if (!filter || filter(el)) siblings.push(el);
-    }
-    return siblings;
-}

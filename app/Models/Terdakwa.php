@@ -10,6 +10,13 @@ class Terdakwa extends Model
     use HasFactory;
     protected $table = 'terdakwa';
     protected $primaryKey = 'id_terdakwa';
+    protected $fillable = [
+        'id_perkara',
+        'nama',
+        'alamat',
+        'ttl',
+        'usia',
+    ];
 
     public function perkara()
     {
